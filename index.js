@@ -25,11 +25,11 @@ const http = require('http')
 Web3 = require("web3");
 
 
-web3 = new Web3('https://mainnet.infura.io/v3/ed07e65b44354a48aa1f5547369fb513');
+web3 = new Web3(`https://mainnet.infura.io/v3/${infuraId}`);
 
 var saiPriceBuyUniswap = 0;
 var saiPriceSellKyber = 0;
-var currentlyTrading= false;
+var currentlyTrading = false;
 
 
 var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${ PORT }`))
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 var cors = require('cors');
 app.use(cors({credentials: true, origin: '*'}));
- // .set('views', path.join(__dirname, 'views'))
+  //.set('views', path.join(__dirname, 'views'))
   //.set('view engine', 'ejs')
   //.get('/', (req, res) => res.render('pages/index'))
  app.get("/", function(req, res) {
@@ -105,10 +105,6 @@ function arbTrade(){
 
 var addr= '0xC0DcE374F9aC0607B432Be0b3439c5Dc84c8f985';
 var pvtkey='305378D1DE2E37FE1100464AFBC1ACC9CFC91EDF1A226E07544D6EBE2BFBC250';
-
-
-
-
 var tradeContract  ='0x1603557c3f7197df2ecded659ad04fa72b1e1114'
 
 
